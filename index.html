@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <title>Register page</title>
     <link rel="stylesheet" href="/styles/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/fcf14b7b29.js" crossorigin="anonymous" defer></script>
 
-    <script src="/scripts/parseEmail.js" defer></script>
     <script src="/scripts/checkEmailFormat.js" defer></script>
     <script src="/scripts/validateInfo.js" defer></script>
     <script src="/scripts/showPassword.js" defer></script>
+    <script src="/scripts/feedback.js" defer></script>
 </head>
 <body>
 <main>
@@ -20,42 +20,52 @@
         <form id="registerForm" novalidate>
             <div class="inputWrap">
                 <label for="firstName">First name</label>
-                <input type="text" name="firstName" id="firstName" required />
+                <div class="control">
+                    <input type="text" name="firstName" id="firstName" required />
+                </div>
                 <span class="statusIcon" aria-hidden="true"></span>
                 <small class="feedback" aria-live="polite"></small>
             </div>
 
             <div class="inputWrap">
                 <label for="lastName">Last name</label>
-                <input type="text" name="lastName" id="lastName" required />
+                <div class="control">
+                    <input type="text" name="lastName" id="lastName" required />
+                </div>
                 <span class="statusIcon" aria-hidden="true"></span>
                 <small class="feedback" aria-live="polite"></small>
             </div>
 
             <div class="inputWrap">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" required />
+                <div class="control">
+                    <input type="email" name="email" id="email" required />
+                </div>
                 <span class="statusIcon" aria-hidden="true"></span>
                 <small class="feedback" aria-live="polite"></small>
             </div>
 
-            <div class="inputWrap showPassword">
+            <div class="inputWrap">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" required />
+                <div class="control">
+                    <input type="password" name="password" id="password" required />
+                    <button type="button" class="togglePassword" aria-label="Show password">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
                 <span class="statusIcon" aria-hidden="true"></span>
-                <button type="button" class="togglePassword" aria-label="Show password">
-                    <i class="fa-solid fa-eye"></i>
-                </button>
                 <small class="feedback" aria-live="polite"></small>
             </div>
 
-            <div class="inputWrap showPassword">
+            <div class="inputWrap">
                 <label for="confirmPassword">Confirm password</label>
-                <input type="password" name="confirmPassword" id="confirmPassword" required />
+                <div class="control">
+                    <input type="password" name="confirmPassword" id="confirmPassword" required />
+                    <button type="button" class="togglePassword" aria-label="Show password">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
                 <span class="statusIcon" aria-hidden="true"></span>
-                <button type="button" class="togglePassword" aria-label="Show password">
-                    <i class="fa-solid fa-eye"></i>
-                </button>
                 <small class="feedback" aria-live="polite"></small>
             </div>
 

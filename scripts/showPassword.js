@@ -1,24 +1,27 @@
-if (!document.documentElement.dataset.showPasswordInit) {
+
+document.addEventListener('DOMContentLoaded', function () {
+    if (document.documentElement.dataset.showPasswordInit) return;
     document.documentElement.dataset.showPasswordInit = '1';
 
-    document.querySelectorAll('.togglePassword').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const container = btn.closest('.showPassword');
+    document.querySelectorAll('.togglePassword').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var container = btn.closest('.control') || btn.closest('.inputWrap') || btn.closest('.showPassword');
             if (!container) return;
 
-            const input = container.querySelector('input[type="password"], input[type="text"]');
+            var input = container.querySelector('input[type="password"], input[type="text"]');
             if (!input) return;
 
-            const isHidden = input.type === 'password';
+            var isHidden = input.type === 'password';
             input.type = isHidden ? 'text' : 'password';
 
-            const icon = btn.querySelector('i');
+            var icon = btn.querySelector('i');
             if (icon) {
-                icon.classList.toggle('fa-eye', isHidden);
-                icon.classList.toggle('fa-eye-low-vision', !isHidden);
+                icon.classList.remove('fa-eye', 'fa-eye-low-vision', 'fa-eye-slash');
+                icon.classList.add(isHidden ? 'fa-eye-low-vision' : 'fa-eye');
+                if (!icon.classList.contains('fa-solid')) icon.classList.add('fa-solid');
             }
 
             btn.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
         });
     });
-}
+});
